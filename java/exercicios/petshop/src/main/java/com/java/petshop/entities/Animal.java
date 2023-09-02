@@ -1,0 +1,28 @@
+package com.java.petshop.entities;
+
+import com.java.petshop.EspecieEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Animal {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    private Long id;
+    private String nome;
+
+    @Enumerated(EnumType.STRING)
+    private EspecieEnum especie;
+    private String raca;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+}
