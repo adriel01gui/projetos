@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.java.backVendas.enums.CategoriaEnum;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -24,4 +26,8 @@ public class Produto {
 
     @Column(name = "precoVenda", length = 10, nullable = false)
     private Double precoVenda;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria",length = 20, nullable = false)
+    private CategoriaEnum categoria;
 }
